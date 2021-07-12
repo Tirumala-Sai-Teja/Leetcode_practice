@@ -43,3 +43,48 @@ int main(){
     cout<<mp[dest]<<endl;
     return 0;
 }
+// second method but there are some changes to do
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,input,m,u,v,cost,start,end;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        cin>>input;
+    }
+    cin>>m;
+    unordered_map<int,vector<pair<int,int>>>graph;
+    for(int i=0;i<m;i++)
+    {
+        cin>>u>>v>>cost;
+        graph[u].push_back({v,cost});
+    }
+    cin>>start;
+    cin>>end;
+    queue<pair<int,int>>q;
+    q.push({start,0});
+    pair<int,int>p;
+    int result=9999;
+    while(!q.empty())
+    {
+        p=q.front();
+        q.pop();
+        int node=p.first;
+        int cost=p.second;
+        //cout<<cost;
+        if(node==end)
+        {
+            result=min(result,cost);
+        }
+        for(auto x:graph[node])
+        {
+            q.push({x.first,x.second+cost});
+        }
+    }
+    cout<<result;
+    return 0;
+}
