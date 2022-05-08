@@ -1,7 +1,7 @@
 /* for undirected graph if we want for directed graph we will just add that edge not both.
 here we are calling dfs in a for loop because in competitive coding they will give two separated graphs as a single graph in such case we need for loop,
 otherwise we dont need to call dfs in a separate for loop*/
-
+#include<bits/stdc++.h>
 #define MAXN 100005
 bool visited[MAXN];
 vector<int> adjList[MAXN];
